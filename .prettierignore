@@ -1,0 +1,12 @@
+.vscode
+.git
+.env
+.editorconfig
+.gitignore
+.prettierignore
+
+node_modules
+package.json
+package-lock.json
+
+**/*.min.*

@@ -1,0 +1,19 @@
+{
+  "keepExistingTerminalsOpen": false,
+  "runOnStartup": true,
+  "terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "shopify",
+          "commands": ["npm run dev"],
+          "shouldRunCommands": false
+        },
+        {
+          "name": "git",
+          "commands": ["git fetch", "clear"]
+        }
+      ]
+    }
+  ]
+}

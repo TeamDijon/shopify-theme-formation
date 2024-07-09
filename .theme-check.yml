@@ -1,0 +1,21 @@
+root: .
+
+ignore: ['node_modules/*', '.vscode/']
+
+ParserBlockingScriptTag:
+  ignore: ['**/mx-*', 'layout/*.liquid']
+
+RequiredLayoutThemeObject:
+  ignore: ['**/theme.liquid']
+
+ContentForHeaderModification:
+  ignore: ['**/mx-content-for-header.liquid']
+
+MissingAsset:
+  ignore: ['layout/*.liquid']
+
+RemoteAsset:
+  ignore: ['layout/*.liquid', '**/mx-preload-hints.liquid', '**/mx-media.liquid']
+
+UndefinedObject:
+  ignore: ['**/mx-*', 'snippets/svg-*']
