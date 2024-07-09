@@ -1,0 +1,20 @@
+{% liquid
+  echo 'exercises.css' | asset_url | stylesheet_tag
+  echo 'exercises.js' | asset_url | script_tag | replace_first: 'text/javascript', 'module'
+%}
+
+<div class="exercises">
+  <h4>Exercice #1: Test</h4>
+  <p>Salut</p>
+</div>
+
+{% schema %}
+{
+  "name": "t:mx.sections.template_section.name",
+  "tag": "section",
+  "class": "shopify-section--exercises",
+  "blocks": [],
+  "settings": [],
+  "presets": []
+}
+{% endschema %}

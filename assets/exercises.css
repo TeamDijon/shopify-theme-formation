@@ -1,0 +1,148 @@
+/* Base styles */
+.shopify-section--exercises {
+  display: block;
+  position: relative;
+
+  margin-block: clamp(
+      var(--mobile-top-margin, 2.5em),
+      1000 * (100vw - 39.99em) + var(--mobile-top-margin, 2.5rem),
+      var(--desktop-top-margin, 5em)
+    )
+    clamp(
+      var(--mobile-bottom-margin, 2.5em),
+      1000 * (100vw - 39.99em) + var(--mobile-bottom-margin, 2.5rem),
+      var(--desktop-bottom-margin, 5em)
+    );
+  padding-block: clamp(
+      var(--mobile-top-padding, 0em),
+      1000 * (100vw - 39.99em) + var(--mobile-top-padding, 0rem),
+      var(--desktop-top-padding, 0em)
+    )
+    clamp(
+      var(--mobile-bottom-padding, 0em),
+      1000 * (100vw - 39.99em) + var(--mobile-bottom-padding, 0rem),
+      var(--desktop-bottom-padding, 0em)
+    );
+
+  font-family: var(--base-font-family, sans-serif);
+  font-style: var(--body-font-style, normal);
+  font-size: clamp(
+    var(--base-mobile-font-size, 1em),
+    0.1 * var(--base-font-delta, 0.125) * (100cqw - 30em) + var(--base-mobile-font-size, 1rem),
+    var(--base-desktop-font-size, 1.125em)
+  );
+  line-height: var(--base-line-height, 1.5);
+  font-weight: var(--base-font-weight, normal);
+  letter-spacing: var(--base-letter-spacing, normal);
+  text-wrap: pretty;
+
+  background-color: var(--background-color, initial);
+  --accent-color: var(--content-color, #1f1f1f);
+  color: var(--content-color, #1f1f1f);
+
+  overflow-x: clip;
+  scroll-margin-block-start: calc(var(--mobile-top-margin, 2.5em) / 2 + var(--mobile-top-padding, 0rem));
+  scroll-behavior: smooth;
+  transition: 0.15s ease-out;
+}
+@media (width >= 40em) {
+  .shopify-section--exercises {
+    scroll-margin-block-start: calc(var(--desktop-top-margin, 5em) / 2 + var(--desktop-top-padding, 0rem));
+  }
+}
+@media (prefers-reduced-motion) {
+  .shopify-section--exercises {
+    scroll-behavior: auto;
+    transition-duration: 0s;
+  }
+}
+.shopify-section--exercises > * {
+  width: clamp(
+    100% - 2 * var(--desktop-gutter, 1.5em),
+    100% - 2 * (1000 * (100vw - 39.99em) - (2 * var(--mobile-gutter, 1rem))),
+    100% - 2 * var(--mobile-gutter, 1em)
+  );
+  margin-inline: auto;
+}
+
+/* Typography styles */
+.shopify-section--exercises :is(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
+  margin-block-end: 0;
+  font-family: var(--heading-font-family, sans-serif);
+  font-style: normal;
+}
+.shopify-section--exercises :is(h1, .h1) {
+  font-size: clamp(
+    var(--h1-mobile-font-size, 2.25em),
+    0.1 * var(--h1-font-delta, 0.75) * (100cqi - 30em) + var(--h1-mobile-font-size, 2.25rem),
+    var(--h1-desktop-font-size, 3em)
+  );
+  line-height: var(--h1-line-height, 1.2);
+  font-weight: var(--h1-font-weight, 700);
+  letter-spacing: var(--h1-letter-spacing, normal);
+}
+.shopify-section--exercises :is(h2, .h2) {
+  font-size: clamp(
+    var(--h2-mobile-font-size, 1.875em),
+    0.1 * var(--h2-font-delta, 0.375) * (100cqi - 30em) + var(--h2-mobile-font-size, 1.875rem),
+    var(--h2-desktop-font-size, 2.25em)
+  );
+  line-height: var(--h2-line-height, 1.2);
+  font-weight: var(--h2-font-weight, 700);
+  letter-spacing: var(--h2-letter-spacing, normal);
+}
+.shopify-section--exercises :is(h3, .h3) {
+  font-size: clamp(
+    var(--h3-mobile-font-size, 1.5em),
+    0.1 * var(--h3-font-delta, 0.375) * (100cqi - 30em) + var(--h3-mobile-font-size, 1.5rem),
+    var(--h3-desktop-font-size, 1.875em)
+  );
+  line-height: var(--h3-line-height, 1.3);
+  font-weight: var(--h3-font-weight, 700);
+  letter-spacing: var(--h3-letter-spacing, normal);
+}
+.shopify-section--exercises :is(h4, .h4) {
+  font-size: clamp(
+    var(--h4-mobile-font-size, 1.25em),
+    0.1 * var(--h4-font-delta, 0.25) * (100cqi - 30em) + var(--h4-mobile-font-size, 1.25rem),
+    var(--h4-desktop-font-size, 1.5em)
+  );
+  line-height: var(--h4-line-height, 1.3);
+  font-weight: var(--h4-font-weight, 700);
+  letter-spacing: var(--h4-letter-spacing, normal);
+}
+.shopify-section--exercises :is(h5, .h5) {
+  font-size: clamp(
+    var(--h5-mobile-font-size, 1.125em),
+    0.1 * var(--h5-font-delta, 0.125) * (100cqi - 30em) + var(--h5-mobile-font-size, 1.125rem),
+    var(--h5-desktop-font-size, 1.25em)
+  );
+  line-height: var(--h5-line-height, 1.3);
+  font-weight: var(--h5-font-weight, 700);
+  letter-spacing: var(--h5-letter-spacing, normal);
+}
+.shopify-section--exercises :is(h6, .h6) {
+  font-size: clamp(
+    var(--h6-mobile-font-size, 1em),
+    0.1 * var(--h6-font-delta, 0.125) * (100cqi - 30em) + var(--h6-mobile-font-size, 1rem),
+    var(--h6-desktop-font-size, 1.125em)
+  );
+  line-height: var(--h6-line-height, 1.3);
+  font-weight: var(--h6-font-weight, 700);
+  letter-spacing: var(--h6-letter-spacing, normal);
+}
+.shopify-section--exercises .h0 {
+  font-size: clamp(
+    var(--h0-mobile-font-size, 3em),
+    0.1 * var(--h0-font-delta, 0.75) * (100cqi - 30em) + var(--h0-mobile-font-size, 3rem),
+    var(--h0-desktop-font-size, 3.75em)
+  );
+  line-height: var(--h0-line-height, 1);
+  font-weight: var(--h0-font-weight, 700);
+  letter-spacing: var(--h0-letter-spacing, normal);
+}
+
+/* Custom styles */
+.exercises {
+  max-width: var(--max-width, 50em);
+}
