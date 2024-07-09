@@ -3,7 +3,7 @@ root: .
 ignore: ['node_modules/*', '.vscode/']
 
 ParserBlockingScriptTag:
-  ignore: ['**/mx-*', 'layout/*.liquid']
+  ignore: ['**/mx-*', 'layout/*.liquid', 'exercises-**.liquid']
 
 RequiredLayoutThemeObject:
   ignore: ['**/theme.liquid']

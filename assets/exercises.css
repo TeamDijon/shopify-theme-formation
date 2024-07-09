@@ -146,3 +146,17 @@
 .exercises {
   max-width: var(--max-width, 50em);
 }
+.exercises .exercise-container .title {
+  margin-bottom: 0.25em;
+}
+.exercises .exercise-container span {
+  display: block;
+  margin-top: 0em;
+}
+.answer-container {
+  margin-block: 2em 5em;
+  min-height: 8em;
+  padding: 1.5em;
+  background-color: #f3f3f3;
+  border-radius: 1em;
+}

@@ -9,14 +9,9 @@
       }
     },
     "exercises": {
-      "type": "exercises",
-      "settings": {
-
-      }
+      "type": "exercises-liquid",
+      "settings": {}
     }
   },
-  "order": [
-    "main",
-    "exercises"
-  ]
+  "order": ["main", "exercises"]
 }

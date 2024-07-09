@@ -1,0 +1,57 @@
+{% liquid
+  echo 'exercises.css' | asset_url | stylesheet_tag
+  echo 'exercises.js' | asset_url | script_tag | replace_first: 'text/javascript', 'module'
+%}
+
+<div class="exercises">
+  {% liquid
+    # Ici, on peut déclarer des variables qui pourront être utilisées dans tous les exercices
+  %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #1: Hello world</h4>
+    <span>- Assignez "world" à la variable "hello"</span>
+    <span>- Affichez la variable "hello" sur la page</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% comment %}
+    {% # ------------------------- %}
+
+    <div class="exercise-container">
+      <h4 class="title">Exercice #x: </h4>
+      <span>- </span>
+    </div>
+
+    {% liquid
+      # Logique ici
+    %}
+    <div class="answer-container">
+      {% # Affichage ici %}
+    </div>
+  {% endcomment %}
+</div>
+
+{% schema %}
+{
+  "name": "t:mx.sections.template_section.name",
+  "tag": "section",
+  "class": "shopify-section--exercises",
+  "blocks": [],
+  "settings": [],
+  "presets": []
+}
+{% endschema %}

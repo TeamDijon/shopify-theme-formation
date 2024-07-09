@@ -1,0 +1,371 @@
+{% liquid
+  echo 'exercises.css' | asset_url | stylesheet_tag
+  echo 'exercises.js' | asset_url | script_tag | replace_first: 'text/javascript', 'module'
+%}
+
+<div class="exercises">
+  {% liquid
+    # Ici, on peut déclarer des variables qui pourront être utilisées dans tous les exercices
+  %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #1: Hello world</h4>
+    <span>- Assignez "world" à la variable "hello"</span>
+    <span>- Affichez la variable "hello" sur la page</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #2: Titre produit</h4>
+    <span>- Créez un produit "Chaussures talon compensé"</span>
+    <span>- Remplissez les données comme bon vous semble</span>
+    <span
+      >- Utilisez les images suivantes pour le produit (<a href="https://cdn.shopify.com/s/files/1/0721/3137/9519/files/talons-compense-1.jpg?v=1720502991"
+        >1</a
+      >, <a href="https://cdn.shopify.com/s/files/1/0721/3137/9519/files/talons-compense-2.jpg?v=1720502991">2</a> et
+      <a href="https://cdn.shopify.com/s/files/1/0721/3137/9519/files/talons-compense-3.jpg?v=1720502991">3</a>)</span
+    >
+    <span>- Affichez le titre du produit</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #3: Disponibilité produit</h4>
+    <span>- Affichez si le produit créé précedemment est disponible</span>
+    <span>- Modifiez les données produit pour qu'il devienne disponible</span>
+    <span
+      >Note: à partir de maintenant, les mentions au "produit" seront en référence aux "Chaussures talon compensé"</span
+    >
+    <span>- À la fin de l'exercice, profitons-en pour assigner le produit à la variable "my_product"</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #4: Le prix du produit</h4>
+    <span>- À partir du produit, affichez le prix de la variante sélectionnée</span>
+    <span>Note: Sur Shopify, les prix sont associés aux variantes</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #5: Liquid Drop</h4>
+    <span>- Assignez le produit à la variable "drop"</span>
+    <span>- Affichez le contenu de la variable "drop"</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #6: Lien produit</h4>
+    <span>- Affichez un lien (&lt;a&gt; / balise anchor) vers le produit</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #7: Affichage tags</h4>
+    <span>- Affichez tous les tags du produit</span>
+    <span>- Si aucun tag, affichez un texte indiquant qu'il n'y a pas de tag associés à ce produit</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #8: Affichage conditionnel</h4>
+    <span>- Si le produit contient le tag "on-sale", affichez un texte indiquant que le produit est en promotion</span>
+    <span>- Il est possible de réaliser cet exercice sans faire de boucle (à votre convenance)</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #9: Tous les produits</h4>
+    <span>- Créez quelques produits supplémentaires (au moins 5 produits sur la boutique)</span>
+    <span>Note: Si la boutique a été pré-remplie, pas nécessaire</span>
+    <span>- Créez une collection "Tous les produits"</span>
+    <span>- La collection doit être automatique et contenir tous les produits</span>
+    <span>- Affichez le titre de la collection</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #10: Grille de produits</h4>
+    <span>- Assignez la collection "Tous les produits" à la variable "my_collection"</span>
+    <span>- Créez une boucle qui affiche l'index et le titre de chacun des produits de la collection</span>
+    <span
+      >- Faites comme bon vous semble, puis une fois l'exercice complété, rééssayez avec le tag
+      {% raw %}{% capture %}{% endraw %}
+    </span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #11: Pas encore</h4>
+    <span>- Réalisez une boucle sur les produits de "my_collection"</span>
+    <span>- À partir de la troisième itération de la boucle, affichez le titre du produit</span>
+    <span>- Sinon, affichez "Pas encore"</span>
+    <span>Note: Il est possible d'utiliser l'objet Liquid "forloop" pour créer les conditions</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #12: Filtre Liquid</h4>
+    <span>- Assignez le titre du produit "my_product" à la variable "majuscule"</span>
+    <span>- Transformez le titre en majuscule grâce aux filtres Liquid</span>
+    <span>- Affichez le titre du produit dans sa version normale, puis en majuscule</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #13: Remplacement</h4>
+    <span>- Assignez le titre du produit "my_product" à la variable "sandale"</span>
+    <span>- Grâce aux filtres Liquid, transformez le titre du produit en "Sandales talons compensés tendance"</span>
+    <span>Note: Aucun problème pour enchainer les filtres, place à la créativité</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #14: Prix du stock</h4>
+    <span
+      >- Affichez le prix du stock (quantité en stock x prix variante) pour la variante sélectionnée du produit
+      "my_product"</span
+    >
+    <span>- Affichez ensuite le prix du stock pour le produit (toutes les variantes cumulées)</span>
+    <span>Note: Utilisez les filtres pour réaliser les opérations mathématiques</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #15: Quelle heure est-il ?</h4>
+    <span>- Utilisez le filtre "date" pour obtenir la date du jour</span>
+    <span
+      >- Dans un second temps, utilisez les paramètres du filtre pour afficher la date dans le format (JJ/MM/AAAA)</span
+    >
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #16: Image produit</h4>
+    <span>- Affichez les images du produit "my_product"</span>
+    <span>Note: Il y a des filtres dédiés, reférez-vous à la documentation</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #17: Toujours plus d'objets</h4>
+    <span>- Affichez le template utilisé par la page</span>
+    <span>- Affichez le type de page ainsi que le chemin associée à la requête</span>
+    <span>- Affichez le nom de la boutique</span>
+    <span>- Affichez le marché actuel ainsi que la langue correspondante à la session</span>
+    <span>- Affichez l'identifiant de la section actuelle</span>
+    <span>- Affichez le nom du thème actuel</span>
+    <span>- Affichez le nombre de produits dans le panier</span>
+    <span>- Affichez le titre de la page actuelle</span>
+    <span>- Affichez le lien vers le portail de connexion</span>
+    <span>Note: Voir les objets correspondants dans la documentation</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #18: Menus</h4>
+    <span>- Créez un menu à partir du menu "Navigation" de la boutique</span>
+    <span>Note: Il doit contenir plusieurs liens, et une profondeur supérieure à 1</span>
+    <span>- En utilisant les listes non ordonées (&lt;ul&gt; et &lt;li&gt;), affichez l'arborescence du menu</span>
+    <span>- Une fois fait, changez les titres en lien</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #19: Options produit</h4>
+    <span>- Affichez toutes les options relatives au produit "my_product"</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #20: Pagination</h4>
+    <span>- Mettez en place une boucle sur la collection "my_collection" qui affiche les titres produit</span>
+    <span>- Mettez en place une pagination afin d'avoir </span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% comment %}
+    {% # ------------------------- %}
+
+    <div class="exercise-container">
+      <h4 class="title">Exercice #x: </h4>
+      <span>- </span>
+    </div>
+
+    {% liquid
+      # Logique ici
+    %}
+    <div class="answer-container">
+      {% # Affichage ici %}
+    </div>
+  {% endcomment %}
+</div>
+
+{% schema %}
+{
+  "name": "t:mx.sections.template_section.name",
+  "tag": "section",
+  "class": "shopify-section--exercises",
+  "blocks": [],
+  "settings": [],
+  "presets": []
+}
+{% endschema %}
