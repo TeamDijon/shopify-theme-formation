@@ -11,9 +11,13 @@
   <h1>Exercices Schéma</h1>
 
   <div class="exercise-container">
-    <h4 class="title">Exercice #1: Hello world</h4>
-    <span>- Assignez "world" à la variable "hello"</span>
-    <span>- Affichez la variable "hello" sur la page</span>
+    <h4 class="title">Exercice #1: Texte personnalisable</h4>
+    <span>- Dans le schéma de la section, mettez en place un paramètre de section</span>
+    <span>- De type "text", avec un ID de votre choix, faites apparaître le paramètre</span>
+    <span
+      >Note: Pour modifier la valeur du paramètre, possible d'aller dans le customiseur de thème ou directement dans le
+      JSON</span
+    >
   </div>
 
   {% liquid
@@ -21,6 +25,133 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #2: Sélecteur de collection</h4>
+    <span>- Dans le schéma de la section, mettez en place un paramètre de section</span>
+    <span>- De type "collection", avec un ID de votre choix</span>
+    <span>- Affichez, pour tous les produits de la collection sélectionnée, les titres des produits associés</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #3: Afficher une image personnalisée</h4>
+    <span>- Dans le schéma de la section, mettez en place un paramètre de section</span>
+    <span>- De type "image_picker", avec un ID de votre choix</span>
+    <span>- En utilisant les filtres d'image, affichez l'image sélectionnée si configurée</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #4: Créer un metafield de page</h4>
+    <span>- Dans le back-office, créer un metafield de type "texte", définition au choix</span>
+    <span>- Remplissez le metafield pour la page sur laquelle vous travaillez actuellement</span>
+    <span>- Dans le code, affichez le metafield dans la boîte de réponse</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #5: Choix de la couleur</h4>
+    <span>- Dans le schéma, créez un paramètre de type couleur</span>
+    <span>- Faites apparaître le code couleur dans la boîte de réponse</span>
+    <span>- Difficile: Utilisez la donnée pour changer la couleur d'arrière plan de la boîte de réponse</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #6: Bloc de section</h4>
+    <span>- Dans le schéma, créez un bloc de type "button"</span>
+    <span>- Dans le schéma de bloc, ajoutez un paramètre de type "url" et un paramètre de type "text"</span>
+    <span>- Dans le customiseur, créez plusieurs instances de bloc</span>
+    <span>- Dans le code, faites apparaître les blocs sous forme de bouton avec lien</span>
+    <span>Note: La boîte de réponse doit contenir autant de boutons qu'il y a de blocs</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #7: La référence dynamique</h4>
+    <span>- Dans le schéma, créez un paramètre de type "product"</span>
+    <span>- Dans la back-office, créez un metafield "page" de type "product"</span>
+    <span>- Associez un produit au metafield de la page dans le back-office</span>
+    <span>- Dans le customiseur, associez le produit du metafield au paramètre de section</span>
+    <span>- Affichez le titre du produit dans la boîte de réponse</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #8: Les paramètres de thème</h4>
+    <span>- Dans "settings_schema.json", créez un paramètre de type "select"</span>
+    <span>- Dans la boîte de réponse, faite apparaitre la valeur du paramètre de thème</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #9: Méta-objet</h4>
+    <span>- Dans le back-office, créer un méta-objet, définition au choix</span>
+    <span>- Pour ce méta-objet, créer une propriété "texte", ID au choix</span>
+    <span>- Créer des entrées pour le méta-objet, toujours dans le back-office</span>
+    <span>- Dans le code, affichez le texte de vos entrées méta-objet</span>
+    <span>- Créez un metafield de type "metaobject" et affichez le texte associé</span>
+    <span>- Associez le texte d'un metaobjet en référence dynamique</span>
   </div>
 
   {% liquid
