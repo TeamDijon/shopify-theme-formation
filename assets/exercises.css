@@ -143,6 +143,23 @@
 }
 
 /* Custom styles */
+.shopify-section--exercises::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(
+    -0.5 * clamp(var(--mobile-top-margin, 2.5em), 1000 * (100vw - 39.99em) + var(--mobile-top-margin, 2.5rem), var(--desktop-top-margin, 5em))
+  );
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  background-color: #000000;
+  opacity: 0.2;
+  transform: translateX(-50%);
+}
+.shopify-section--exercises:first-child::before {
+  content: none;
+}
 .exercises {
   max-width: var(--max-width, 50em);
 }
