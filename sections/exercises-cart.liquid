@@ -11,9 +11,10 @@
   <h1>Exercices Panier</h1>
 
   <div class="exercise-container">
-    <h4 class="title">Exercice #1: Hello world</h4>
-    <span>- Assignez "world" à la variable "hello"</span>
-    <span>- Affichez la variable "hello" sur la page</span>
+    <h4 class="title">Exercice #1: Récupérer données panier</h4>
+    <span>- Une fonction "logCart" a été ajoutée au bouton présent dans la boîte de réponse</span>
+    <span>- Lors d'un clic, la fonction "logCart" est executée</span>
+    <span>- Complétez la fonction "logCart" et affichez le contenu du panier dans la console</span>
   </div>
 
   {% liquid
@@ -21,6 +22,20 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    <button data-click-action="log-cart">Logger panier</button>
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #2: Ajout au panier</h4>
+    <span>- Une fonction "addToCart" a été ajoutée au bouton présent dans la boîte de réponse</span>
+    <span>- Lors d'un clic, la fonction "addToCart" est executée</span>
+    <span>- Complétez la fonction "addToCart" puis utilisez le bouton "logCart" pour vérifier l'ajout du produit</span>
+    <span
+      >Note: Il est nécessaire de préparer les données pour la requête d'ajout au panier (ID variante, quantité), le
+      Liquid peut vous aider</span
+    >
   </div>
 
   {% liquid
@@ -28,6 +43,23 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    <button data-click-action="add-to-cart">Ajouter au panier</button>
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #3: Mettre à jour le panier</h4>
+    <span>- </span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+    <button data-click-action="increase-cart-item-quantity">-</button>
+    <button data-click-action="decrease-cart-item-quantity">+</button>
   </div>
 
   {% comment %}
