@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -8,10 +17,55 @@
         "padding_bottom": 28
       }
     },
-    "exercises": {
+    "cart": {
+      "type": "exercises-cart",
+      "settings": {
+      }
+    },
+    "schema": {
+      "type": "exercises-schema",
+      "blocks": {
+        "first": {
+          "type": "button",
+          "settings": {
+            "text": "Cliquez ici"
+          }
+        },
+        "second": {
+          "type": "button",
+          "settings": {
+            "text": "Ou bien ici"
+          }
+        },
+        "third": {
+          "type": "button",
+          "settings": {
+            "text": "Possible ici aussi"
+          }
+        },
+        "fourth": {
+          "type": "button",
+          "settings": {
+            "text": "Mais pas ici par contre"
+          }
+        }
+      },
+      "block_order": ["first", "second", "third", "fourth"],
+      "settings": {
+        "first_text": "Salut tout le monde",
+        "first_collection": "tous-les-produits"
+      }
+    },
+    "liquid": {
       "type": "exercises-liquid",
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": ["main", "exercises"]
+  "order": [
+    "main",
+    "cart",
+    "schema",
+    "liquid"
+  ]
 }

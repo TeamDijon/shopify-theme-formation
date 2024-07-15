@@ -18,7 +18,7 @@
 
   {% liquid
     # Logique ici
-    assign hello = "world"
+    assign hello = 'world'
   %}
   <div class="answer-container">
     {% # Affichage ici %}
@@ -42,9 +42,11 @@
 
   {% liquid
     # Logique ici
+    assign my_product = all_products.bottes
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ my_product.title }}
   </div>
 
   {% # ------------------------- %}
@@ -64,6 +66,7 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ my_product.available }}
   </div>
 
   {% # ------------------------- %}
@@ -76,9 +79,11 @@
 
   {% liquid
     # Logique ici
+    assign my_price = my_product.selected_or_first_available_variant.price | money
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ my_price }}
   </div>
 
   {% # ------------------------- %}
@@ -91,9 +96,11 @@
 
   {% liquid
     # Logique ici
+    assign drop = my_product
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ drop }}
   </div>
 
   {% # ------------------------- %}
@@ -108,6 +115,7 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    <a href="{{ my_product.url }}">{{ my_product.title }}</a>
   </div>
 
   {% # ------------------------- %}
@@ -123,6 +131,11 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product_tag in my_product.tags %}
+      <p>{{ product_tag }}</p>
+    {% else %}
+      <p>Il n'y a aucun tag pour ce produit</p>
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -135,9 +148,19 @@
 
   {% liquid
     # Logique ici
+    assign discount_tag = 'on-sale'
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product_tag in my_product.tags %}
+      {% if product_tag == 'on-sale' %}
+        <p>Le produit est actuellement en promotion !</p>
+      {% endif %}
+    {% endfor %}
+
+    {% if my_product.tags contains discount_tag %}
+      <p>Le produit est en promotion</p>
+    {% endif %}
   </div>
 
   {% # ------------------------- %}
@@ -153,9 +176,11 @@
 
   {% liquid
     # Logique ici
+    assign my_collection = collections['tous-les-produits']
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ my_collection.title }}
   </div>
 
   {% # ------------------------- %}
@@ -175,6 +200,9 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product in my_collection.products %}
+      <p>{{ forloop.index }} - {{ product.title }}</p>
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -192,6 +220,13 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product in my_collection.products limit: 4 %}
+      {% if forloop.index < 3 %}
+        <p>Pas encore</p>
+      {% else %}
+        <p>{{ product.title }}</p>
+      {% endif %}
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -205,9 +240,11 @@
 
   {% liquid
     # Logique ici
+    assign majuscule = my_product.title | upcase
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ my_product.title }} - {{ majuscule }}
   </div>
 
   {% # ------------------------- %}
@@ -221,9 +258,13 @@
 
   {% liquid
     # Logique ici
+    assign sandale = my_product.title | downcase | append: ' tendance' | prepend: 'Sandales '
+    # Talons compensés → Sandales talons compensés tendance
   %}
+
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ sandale }}
   </div>
 
   {% # ------------------------- %}
@@ -240,9 +281,16 @@
 
   {% liquid
     # Logique ici
+    assign my_product_stock_price = 0
+    for variant in my_product.variants
+      assign my_variant_stock_price = variant.inventory_quantity | times: variant.price
+      assign my_product_stock_price = my_product_stock_price | plus: my_variant_stock_price
+    endfor
+    assign my_product_stock_price = my_product_stock_price | money
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ my_product_stock_price }}
   </div>
 
   {% # ------------------------- %}
@@ -260,6 +308,7 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ 'now' | date }}
   </div>
 
   {% # ------------------------- %}
@@ -272,9 +321,13 @@
 
   {% liquid
     # Logique ici
+    assign my_images = all_products['talons-compenses'].images
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product_image in my_images %}
+      {{ product_image | image_url: width: 320 | image_tag: class: 'product-image', srcset: null, loading: 'lazy' }}
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -298,6 +351,12 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    <p>{{ template }}</p>
+    <p>{{ request.page_type }} - {{ request.path }}</p>
+    <p>{{ shop.name }}</p>
+    <p>{{ localization.language.name }} - {{ localization.market.handle }}</p>
+    <p>#{{ 'shopify-section-' | append: section.id }}</p>
+    <p>{{ cart.item_count }}</p>
   </div>
 
   {% # ------------------------- %}
@@ -312,9 +371,38 @@
 
   {% liquid
     # Logique ici
+    assign my_menu_links = linklists.footer.links
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    <ul>
+      {% for link in my_menu_links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          {% if link.links.size > 0 %}
+            {% assign child_links = link.links %}
+            <ul>
+              {% for child_link in child_links %}
+                <li>
+                  <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+
+                  {% if child_link.links.size > 0 %}
+                    {% assign grand_child_links = child_link.links %}
+                    <ul>
+                      {% for grand_child_link in grand_child_links %}
+                        <li>
+                          <a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 
   {% # ------------------------- %}
@@ -326,9 +414,18 @@
 
   {% liquid
     # Logique ici
+    assign my_options = my_product.options_with_values
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product_option in my_options %}
+      <p>{{ product_option.name }}</p>
+      <select>
+        {% for option_value in product_option.values %}
+          <option value="{{ option_value.name | handle }}">{{ option_value.name }}</option>
+        {% endfor %}
+      </select>
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -344,6 +441,13 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% paginate my_collection.products by 1000 %}
+      {% for product in my_collection.products %}
+        <p>{{ product.title }}</p>
+      {% endfor %}
+
+      {{ paginate | default_pagination }}
+    {% endpaginate %}
   </div>
 
   {% comment %}

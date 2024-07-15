@@ -40,17 +40,30 @@
 
   {% liquid
     # Logique ici
+    assign my_variant = collections.all.products.first.selected_or_first_available_variant
+    assign variant_id = my_variant.id
   %}
   <div class="answer-container">
     {% # Affichage ici %}
-    <button data-click-action="add-to-cart">Ajouter au panier</button>
+    <button data-click-action="add-to-cart" data-variant-id="{{ variant_id }}" data-quantity="1">
+      Ajouter au panier
+    </button>
   </div>
 
   {% # ------------------------- %}
 
   <div class="exercise-container">
     <h4 class="title">Exercice #3: Mettre à jour le panier</h4>
-    <span>- </span>
+    <span>- Une fonction "updateCartItemQuantity" a été ajoutée au bouton présent dans la boîte de réponse</span>
+    <span>- Lors d'un changement, la fonction "updateCartItemQuantity" est executée</span>
+    <span
+      >- Lors d'un clic sur les boutons + / -, la quantité est modifiée également, éxecutant la fonction
+      "updateCartItemQuantity"</span
+    >
+    <span
+      >- Complétez la fonction "updateCartItemQuantity" puis utilisez le bouton "logCart" pour vérifier l'ajout du
+      produit</span
+    >
   </div>
 
   {% liquid
@@ -58,8 +71,69 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
-    <button data-click-action="increase-cart-item-quantity">-</button>
-    <button data-click-action="decrease-cart-item-quantity">+</button>
+    <button data-click-action="decrease-cart-item-quantity">-</button>
+    <input
+      type="number"
+      min="1"
+      value="1"
+      data-variant-id="{{ variant_id }}"
+      data-change-action="update-cart-item-quantity"
+    >
+    <button data-click-action="increase-cart-item-quantity">+</button>
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #4: Supression panier</h4>
+    <span>- Une fonction "clearCart" a été ajoutée au bouton présent dans la boîte de réponse</span>
+    <span>- Lors d'un clic, la fonction "clearCart" est executée</span>
+    <span>- Complétez la fonction "clearCart" puis utilisez le bouton "logCart" pour vérifier l'ajout du produit</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+    <button data-click-action="clear-cart">Effacer panier</button>
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #5: Mise à jour attribut panier</h4>
+    <span>- Une fonction "addCartAttribute" a été ajoutée au bouton présent dans la boîte de réponse</span>
+    <span>- Lors d'un clic, la fonction "addCartAttribute" est executée</span>
+    <span>- Les données passées dépendent des champs disponibles</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+    <input type="text" placeholder="Nom attribut" data-name>
+    <input type="text" placeholder="Valeur attribut" data-value>
+    <button data-click-action="add-cart-attribute">Ajouter attribut</button>
+  </div>
+
+  {% # ------------------------- %}
+
+  <div class="exercise-container">
+    <h4 class="title">Exercice #6: Modifier la note associée à la commande</h4>
+    <span>- Une fonction "updateCartNote" a été ajoutée au bouton présent dans la boîte de réponse</span>
+    <span>- Lors d'un clic, la fonction "updateCartNote" est executée</span>
+    <span>- La note passée dépend du texte présent dans le champ dédié</span>
+  </div>
+
+  {% liquid
+    # Logique ici
+  %}
+  <div class="answer-container">
+    {% # Affichage ici %}
+    <input type="text" placeholder="Contenu note">
+    <button data-click-action="update-cart-note">Modifier note</button>
   </div>
 
   {% comment %}

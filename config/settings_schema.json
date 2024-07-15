@@ -8,6 +8,30 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Paramètres de thème",
+    "settings": [
+      {
+        "type": "select",
+        "id": "my_select_parameter",
+        "label": "Sélecteur",
+        "options": [
+          {
+            "value": "top",
+            "label": "Haut"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "bottom",
+            "label": "Bas"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

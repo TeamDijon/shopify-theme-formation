@@ -22,9 +22,13 @@
 
   {% liquid
     # Logique ici
+    assign my_text_parameter = section.settings.first_text
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% if my_text_parameter != blank %}
+      <p>{{ my_text_parameter }}</p>
+    {% endif %}
   </div>
 
   {% # ------------------------- %}
@@ -41,6 +45,9 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for product in section.settings.first_collection.products %}
+      <p>{{ product.title }}</p>
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -54,9 +61,11 @@
 
   {% liquid
     # Logique ici
+    assign image_markup = section.settings.first_image | image_url: width: 320 | image_tag
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ image_markup }}
   </div>
 
   {% # ------------------------- %}
@@ -70,9 +79,11 @@
 
   {% liquid
     # Logique ici
+    assign metafield_value = page.metafields.custom.mon_premier_metafield.value
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ metafield_value }} - {% if page.metafields.custom.mon_premier_metafield.value != blank %}{% endif %}
   </div>
 
   {% # ------------------------- %}
@@ -87,8 +98,12 @@
   {% liquid
     # Logique ici
   %}
-  <div class="answer-container">
+  <div
+    class="answer-container {% if my_text_parameter != blank %}there-is-text{% endif %}"
+    style="--background-color: {{ section.settings.answer_box_background_color }}; --color: {{ section.settings.answer_box_color }}"
+  >
     {% # Affichage ici %}
+    Et voilà, ma boîte de réponse dépend de metafields grâce aux références dynamiques!
   </div>
 
   {% # ------------------------- %}
@@ -107,6 +122,9 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for block in section.blocks %}
+      <button>{{ block.settings.text }}</button>
+    {% endfor %}
   </div>
 
   {% # ------------------------- %}
@@ -125,6 +143,7 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ section.settings.featured_product.title }}
   </div>
 
   {% # ------------------------- %}
@@ -140,6 +159,7 @@
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {{ settings.my_select_parameter }}
   </div>
 
   {% # ------------------------- %}
@@ -156,9 +176,13 @@
 
   {% liquid
     # Logique ici
+    assign my_metaobject_entries = page.metafields.custom.metaobject_list.value
   %}
   <div class="answer-container">
     {% # Affichage ici %}
+    {% for metaobject_entry in my_metaobject_entries %}
+      <p>{{ metaobject_entry.title.value }}</p>
+    {% endfor %}
   </div>
 
   {% comment %}
@@ -183,8 +207,52 @@
   "name": "Exercices Schéma",
   "tag": "section",
   "class": "shopify-section--exercises",
-  "blocks": [],
-  "settings": [],
+  "blocks": [
+    {
+      "name": "Bouton",
+      "type": "button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "first_text",
+      "label": "My first text",
+      "default": "Hello world"
+    },
+    {
+      "type": "collection",
+      "id": "first_collection",
+      "label": "My first collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "first_image",
+      "label": "My first image"
+    },
+    {
+      "type": "color",
+      "id": "answer_box_background_color",
+      "label": "Couleur de fond boîte de réponse"
+    },
+    {
+      "type": "color",
+      "id": "answer_box_color",
+      "label": "Couleur texte boîte de réponse"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Produit en vedette"
+    }
+  ],
   "presets": []
 }
 {% endschema %}
